@@ -1,4 +1,4 @@
-console.log('Users je ucitan!');
+console.log('User je ucitan!');
 
 class User {
     user_id = '';
@@ -7,34 +7,36 @@ class User {
     password = '';
     api_url = 'https://65d4c2303f1ab8c63435efed.mockapi.io';
 
-    createUser() 
-    {
-        let data = 
-        {
-            username: this.username,
-            email: this.email,
-            password: this.password
+    async createUser() {
+        let userExists = await this.checkExistingUsers();
+        if (!userExists) {
+            let data = {
+                username: this.username,
+                email: this.email,
+                password: this.password
+            };
+    
+            data = JSON.stringify(data);
+    
+            fetch(this.api_url + '/users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: data
+                })
+                .then(response => response.json())
+                .then(data => {
+                    let session = new Session();
+                    session.user_id = data.id;
+                    session.startSession();
+    
+                    window.location.href = 'hexa.html';
+                })
+                .catch(error => console.error('Error creating user:', error));
+        } else {
+            console.log('Neki od podataka su zauzeti!');
         }
-
-        data = JSON.stringify(data);
-
-        fetch(this.api_url + '/users', 
-        {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: data
-        })
-        .then(response => response.json())
-        .then(data => {
-            // console.log(data);
-            let session = new Session();
-            session.user_id = data.id;
-            session.startSession();
-
-            window.location.href = 'hexa.html';
-        })
     }
 
     async get(user_id)
@@ -98,6 +100,20 @@ class User {
                     alert('Pogresan email ili lozinka!');
                 }
             });
+    }
+
+    async checkExistingUsers() {
+        let response = await fetch(this.api_url + '/users');
+        let data = await response.json();
+    
+        let is_there_any = false;
+        data.forEach(db_user => {
+            if (db_user.email === this.email || db_user.username === this.username) {
+                is_there_any = true;
+            }
+        });
+    
+        return is_there_any;
     }
 
     delete()
