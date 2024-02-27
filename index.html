@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+	<title>Danetwork</title>
+</head>
+<body>
+    <div class="logo">
+        <img src="">
+    </div>
+
+    <div class="main-wrapper">
+        <form id="loginForm">
+            <h2>Login</h2>
+
+            <div>
+                <label>Email:</label>
+                <input type="email" name="email" id="login_email" placeholder="Your email: ">
+            </div>
+
+            <div>
+                <label>Password:</label>
+                <input type="password" name="lozinka" id="login_lozinka" placeholder="Your password: ">
+            </div>
+
+            <div>
+                <button><span>Log in</span></button>
+            </div>
+        </form>
+    </div>
+
+    <div class="no-acc-register">
+        <p>You do not have an account?</p>
+        <button id="registracija"><span>Register</span></button>
+    </div>
+
+    <div class="custom-modal">
+        <button id="closeModal">X</button>
+
+        <form id="registrationForm">
+            <h2>User registration</h2>
+
+            <div>
+                <label for="korisnicko_ime">Username: </label>
+                <input id="korisnicko_ime" type="text" name="korisnicko_ime" placeholder="Your username:">
+            </div>
+
+            <div>
+                <label for="email">Email address: </label>
+                <input id="email" type="text" name="email" placeholder="Your email:">
+            </div>
+
+            <div>
+                <label for="lozinka">Password: </label>
+                <input id="lozinka" type="password" name="lozinka" placeholder="Your password:">
+            </div>
+
+            <div>
+                <label for="ponovi_lozinku">Confirm password: </label>
+                <input id="ponovi_lozinku" type="password" name="ponovi_lozinku" placeholder="Repeat your password:">
+            </div>
+
+            <div>
+                <button id="btn" disabled="true"><span>Register</span></button>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="js/Validator.js"></script>
+    <script type="text/javascript" src="js/Session.js"></script>
+    <script type="text/javascript" src="js/User.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
