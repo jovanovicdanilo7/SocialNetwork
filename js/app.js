@@ -1,4 +1,4 @@
-console.log('App je ucitan!');
+console.log('Main je ucitan!');
 
 let session = new Session();
 session = session.getSession();
@@ -56,28 +56,27 @@ registrationForm.querySelectorAll('input').forEach(input => {
     input.addEventListener('input', () => {
         if (checkInputs()) {
             regFormButton.removeAttribute('disabled'); 
-
-            registrationForm.addEventListener('submit', e => 
-            {
-                e.preventDefault();
-
-                if(validator.validationPassed())
-                {
-                    let user = new User();
-                    user.username = document.querySelector('#korisnicko_ime').value;
-                    user.email = document.querySelector('#email').value;
-                    user.password = document.querySelector('#lozinka').value;
-                    user.createUser();
-                } else 
-                {
-                    alert('Polja nisu dobro popunjena!');
-                }
-            });
-
         } else {
             regFormButton.setAttribute('disabled', true); 
         }
     });
+});
+
+registrationForm.addEventListener('submit', e => 
+{
+    e.preventDefault();
+
+    if(validator.validationPassed())
+    {
+        let user = new User();
+        user.username = document.querySelector('#korisnicko_ime').value;
+        user.email = document.querySelector('#email').value;
+        user.password = document.querySelector('#lozinka').value;
+        user.createUser();
+    } else 
+    {
+        alert('Polja nisu dobro popunjena!');
+    }
 });
 
 document.querySelector('#loginForm').addEventListener('submit', e => 
