@@ -1,15 +1,15 @@
-console.log('User je ucitan!');
+console.log('Userss je ucitan!');
 
 class User {
     user_id = '';
     username = '';
     email = '';
     password = '';
-    api_url = 'https://65d4c2303f1ab8c63435efed.mockapi.io';
+    api_url = '';
 
     async createUser() {
         let userExists = await this.checkExistingUsers();
-        if (!userExists) {
+        if (userExists === 0) {
             let data = {
                 username: this.username,
                 email: this.email,
@@ -34,8 +34,12 @@ class User {
                     window.location.href = 'hexa.html';
                 })
                 .catch(error => console.error('Error creating user:', error));
-        } else {
-            console.log('Neki od podataka su zauzeti!');
+        } else if(userExists === 3){
+            alert('Email already exists, please try another.');
+        } else if(userExists === 2){
+            alert('Username already exists, please try another.');
+        } else{
+            alert('Email and username already exists, please try another.');
         }
     }
 
@@ -96,8 +100,7 @@ class User {
 
                 if(login_successful === 0)
                 {
-                    // console.log('Pogresan email ili lozinka!');
-                    alert('Pogresan email ili lozinka!');
+                    alert('Wrong email or password, please try again.');
                 }
             });
     }
@@ -106,10 +109,14 @@ class User {
         let response = await fetch(this.api_url + '/users');
         let data = await response.json();
     
-        let is_there_any = false;
+        let is_there_any = 0;
         data.forEach(db_user => {
-            if (db_user.email === this.email || db_user.username === this.username) {
-                is_there_any = true;
+            if (db_user.email === this.email && db_user.username === this.username) {
+                is_there_any = 1;
+            } else if (db_user.username === this.username){
+                is_there_any = 2;
+            } else if(db_user.email === this.email){
+                is_there_any = 3;
             }
         });
     
