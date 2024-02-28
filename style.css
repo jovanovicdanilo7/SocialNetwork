@@ -7,7 +7,7 @@
 body {
     font-family: "Courier New", monospace;
     padding: 50px;
-    background-image: url('img/proba10.png');
+    background-image: url('img/background.png');
     color: #000000;
     background-size: cover;
     margin: 0; 
@@ -155,7 +155,7 @@ form ul li {
 
 .custom-modal {
     display: none;
-    background-image: url('img/proba14.png');
+    background-image: url('img/modal_background.png');
     background-size: cover;
     max-width: 650px;
     margin: auto;
@@ -185,6 +185,9 @@ form ul li {
 .inner-container {
     border: 1px solid green;
     padding: 15px;
+    border-style: double;
+    border-color: #af89e6;
+    clip-path: polygon(50% 2%, 100% 0, 100% 0, 98% 50%, 100% 100%, 50% 98%, 0 100%, 2% 50%, 0 0, 0 0);
 }
 
 .inner-container.left-side{
