@@ -4,7 +4,7 @@ class Comment {
     post_id = '';
     user_id = '';
     content = '';
-    api_url = 'https://65d4c2303f1ab8c63435efed.mockapi.io';
+    api_url = '';
 
     create() 
     {
