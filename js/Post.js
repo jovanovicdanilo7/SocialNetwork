@@ -5,7 +5,7 @@ class Post {
     post_content = '';
     user_id = '';
     likes = '';
-    api_url = 'https://65d4c2303f1ab8c63435efed.mockapi.io';
+    api_url = '';
 
     async create()
     {
