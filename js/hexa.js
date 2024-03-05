@@ -100,8 +100,8 @@ document.querySelector('#postForm').addEventListener('submit', e =>
                                                                     <div class="post-actions">
                                                                         <p><b>Autor:</b> ${current_user.username}</p>
                                                                         <div>
-                                                                            <button onclick="likePost(this)" class="likePostJS like-btn"><span>${post.likes}</span> Likes</button>
-                                                                            <button class="comment-btn" onclick="commentPost(this)">Comments</button>
+                                                                            <button onclick="likePost(this)" class="likePostJS like-btn"><span>${post.likes}</span></button>
+                                                                            <button class="comment-btn" onclick="commentPost(this)"></button>
                                                                             ${delete_post_html}
                                                                         </div>
                                                                     </div>
@@ -157,8 +157,8 @@ async function getAllPosts()
                                                                             <div class="post-actions">
                                                                                 <p><b>Autor:</b> ${user.username}</p>
                                                                                 <div>
-                                                                                    <button onclick="likePost(this)" class="likePostJS like-btn"><span>${post.likes}</span> Likes</button>
-                                                                                    <button class="comment-btn" onclick="commentPost(this)">Comments</button>
+                                                                                    <button onclick="likePost(this)" class="likePostJS like-btn"><span>${post.likes}</span></button>
+                                                                                    <button class="comment-btn" onclick="commentPost(this)"></button>
                                                                                     ${delete_post_html}
                                                                                 </div>
                                                                             </div>
