@@ -57,7 +57,7 @@ document.querySelector('#deleteProfile').addEventListener('click', e =>
 {
     e.preventDefault();
 
-    let text = 'Da li ste sigurni da zelite da obrisete profil?';
+    let text = 'Are you sure you want to delete profile?';
 
     if(confirm(text) === true)
     {
