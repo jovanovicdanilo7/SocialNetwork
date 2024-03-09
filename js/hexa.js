@@ -1,4 +1,4 @@
-console.log('Hexa ucitan!');
+console.log('Hexass ucitan!');
 
 let session = new Session();
 session_id = session.getSession();
@@ -26,7 +26,6 @@ if(session_id !== "")
 
 document.querySelector('#logout').addEventListener('click', e => 
 {
-    // console.log('Odjava!');
     e.preventDefault();
 
     session.destroySession();
@@ -35,7 +34,6 @@ document.querySelector('#logout').addEventListener('click', e =>
 
 document.querySelector('#editAccount').addEventListener('click', () => 
 {
-    // console.log('Kliknuto!');
     document.querySelector('.custom-modal').style.display = 'block';
 });
 
@@ -98,7 +96,7 @@ document.querySelector('#postForm').addEventListener('submit', e =>
                                                                     <div class="post-content">${post.content}</div>
 
                                                                     <div class="post-actions">
-                                                                        <p><b>Autor:</b> ${current_user.username}</p>
+                                                                        <p><b>Author of post:</b> ${current_user.username}</p>
                                                                         <div>
                                                                             <button onclick="likePost(this)" class="likePostJS like-btn"><span>${post.likes}</span></button>
                                                                             <button class="comment-btn" onclick="commentPost(this)"></button>
@@ -124,7 +122,7 @@ async function getAllPosts()
     let all_posts = new Post();
     all_posts = await all_posts.getAllPosts();
 
-    all_posts.forEach(post => 
+        for (const post of all_posts)
         {
             async function getPostUser()
             {
@@ -137,10 +135,16 @@ async function getAllPosts()
                 let comments_html = '';
                 if(comments.length > 0)
                 {
-                    comments.forEach(comment => 
-                        {
-                            comments_html += `<div class="single-comment">${comment.content}</div>`;
-                        });
+                    for(const comment of comments) 
+                    {
+                        let comment_user = new User();
+                        comment_user = await comment_user.get(comment.user_id);
+
+                        comments_html += `<div class="single-comment">
+                                                <p><b>Author of comment:</b> ${comment_user.username}</p>
+                                                <p>${comment.content}</p>
+                                            </div>`;
+                    }
                 }
 
                 let delete_post_html = '';
@@ -155,7 +159,7 @@ async function getAllPosts()
                                                                             <div class="post-content">${post.content}</div>
 
                                                                             <div class="post-actions">
-                                                                                <p><b>Autor:</b> ${user.username}</p>
+                                                                                <p><b>Author of post:</b> ${user.username}</p>
                                                                                 <div>
                                                                                     <button onclick="likePost(this)" class="likePostJS like-btn"><span>${post.likes}</span></button>
                                                                                     <button class="comment-btn" onclick="commentPost(this)"></button>
@@ -165,7 +169,7 @@ async function getAllPosts()
 
                                                                             <div class="post-comments">
                                                                                 <form>
-                                                                                    <input placeholder="Napisi komentar..." type="text">
+                                                                                    <input placeholder="Write a comment..." type="text">
                                                                                     <button onclick="commentPostSubmit(event)">Comment</button>
                                                                                 </form>
                                                                                 ${comments_html}
@@ -175,7 +179,7 @@ async function getAllPosts()
             }
 
             getPostUser();
-        });
+        }
 }
 
 getAllPosts();
@@ -184,6 +188,7 @@ const commentPostSubmit = e =>
 {
     e.preventDefault();
 
+    let logged_user = document.querySelector('#username');
     let btn = e.target;
     btn.setAttribute('disabled', 'true');
 
@@ -194,7 +199,11 @@ const commentPostSubmit = e =>
 
     main_post_el.querySelector('input').value = "";
 
-    main_post_el.querySelector('.post-comments').innerHTML += `<div class="single-comment">${comment_value}</div>`
+    main_post_el.querySelector('.post-comments').innerHTML += `<div class="single-comment">
+                                                                    <p><b>Author of comment:</b>${logged_user.innerText}</p>
+                                                                    <hr>
+                                                                    <p>${comment_value}</p>
+                                                                </div>`;
 
     let comment = new Comment();
     comment.content = comment_value;
