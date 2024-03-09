@@ -142,6 +142,7 @@ async function getAllPosts()
 
                         comments_html += `<div class="single-comment">
                                                 <p><b>Author of comment:</b> ${comment_user.username}</p>
+                                                <hr>
                                                 <p>${comment.content}</p>
                                             </div>`;
                     }
