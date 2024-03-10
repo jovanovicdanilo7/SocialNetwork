@@ -1,5 +1,3 @@
-console.log('Validators je ucitan!');
-
 class Validator {
 	constructor(config, formID) {
 		this.elementsConfig = config;
