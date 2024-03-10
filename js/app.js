@@ -1,3 +1,34 @@
+let textTag = document.querySelector(".title h1");
+let text = textTag.textContent;
+let splittedText = text.split('');
+
+textTag.innerHTML = '';
+
+for(let i = 0; i < splittedText.length; i++)
+{
+    if(splittedText[i] === " ")
+    {
+        splittedText[i] = "&nbsp;";
+    }
+    textTag.innerHTML += `<span>${splittedText[i]}</span>`;
+}
+
+let k = 0;
+let spans = textTag.querySelectorAll('span');
+
+let interval = setInterval(() => 
+{
+    let singleSpan = spans[k];
+
+    singleSpan.className = 'fadeMove';
+    k++;
+
+    if(k === spans.length)
+    {
+        clearInterval(interval);
+    }
+}, 70);
+
 let session = new Session();
 session = session.getSession();
 
