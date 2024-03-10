@@ -1,5 +1,3 @@
-console.log('Post je ucitan!');
-
 class Post {
     post_id = '';
     post_content = '';
