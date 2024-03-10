@@ -1,5 +1,3 @@
-console.log('Session je ucitan!');
-
 class Session {
     user_id = '';
 
