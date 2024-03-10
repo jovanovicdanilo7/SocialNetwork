@@ -1,5 +1,3 @@
-console.log('Main je ucitan!');
-
 let session = new Session();
 session = session.getSession();
 
