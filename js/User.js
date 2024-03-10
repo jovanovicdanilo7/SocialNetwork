@@ -1,5 +1,3 @@
-console.log('Userss je ucitan!');
-
 class User {
     user_id = '';
     username = '';
