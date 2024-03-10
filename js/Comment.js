@@ -1,5 +1,3 @@
-console.log('Comment je ucitan!');
-
 class Comment {
     post_id = '';
     user_id = '';
