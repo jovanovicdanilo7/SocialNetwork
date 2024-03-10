@@ -20,6 +20,39 @@ body {
     box-shadow: rgba(255, 255, 255, 0.4) 1000px 1000px 1000px inset;
 }
 
+@keyframes rotateIn {
+    0% {
+      transform: rotateX(-180deg) translateZ(-90px);
+      opacity: 0.9;
+    }
+    100% {
+      transform: rotateX(0deg) translateZ(0);
+      opacity: 1;
+    }
+  }
+
+body .title h1{
+    text-transform: uppercase;
+    color: #000;
+    justify-content: center;
+    display: flex;
+    transform-style: preserve-3d;
+    letter-spacing: 10px;
+    animation: rotateIn 3s ease forwards;
+}
+
+.title h1 span {
+    opacity: 0;
+    transition: all 0.5s ease;
+    transform: translateX(50px);
+    display: inline-block;
+}
+
+.title .fadeMove{
+    transform: translateY(0);
+    opacity: 1;
+}
+
 h2 {
     margin-bottom: 15px;
     text-transform: uppercase;
