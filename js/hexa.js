@@ -1,5 +1,3 @@
-console.log('Hexass ucitan!');
-
 let session = new Session();
 session_id = session.getSession();
 
@@ -44,7 +42,6 @@ document.querySelector('#closeModal').addEventListener('click', () =>
 
 document.querySelector('#editForm').addEventListener('submit', e => 
 {
-    console.log('Kliknuto!');
     e.preventDefault();
 
     let user = new User();
@@ -68,8 +65,6 @@ document.querySelector('#deleteProfile').addEventListener('click', e =>
 
 document.querySelector('#postForm').addEventListener('submit', e => 
 {
-    console.log('Kliknuto!');
-
     e.preventDefault();
 
     async function createPost()
