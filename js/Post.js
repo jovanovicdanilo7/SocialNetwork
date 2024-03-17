@@ -60,7 +60,7 @@ class Post {
         .then(response => response.json())
         .then(data => 
             {
-                alert('Post lajkovan!');
+                alert('You liked this post!');
             });
 
         return data;
@@ -75,7 +75,7 @@ class Post {
         .then(response => response.json())
         .then(data => 
             {
-                alert('Post obrisan!');
+                alert('The post has been deleted!');
             });
     }
 }
