@@ -25,7 +25,7 @@ class Comment {
         })
         .then(response => response.json())
         .then(data => {
-            alert('Postavljen komentar!');
+            alert('The comment has been published!');
         });
     }
 
