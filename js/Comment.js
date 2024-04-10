@@ -2,7 +2,7 @@ class Comment {
     post_id = '';
     user_id = '';
     content = '';
-    api_url = '';
+    api_url = 'https://jsonplaceholder.typicode.com/';
 
     create() 
     {
