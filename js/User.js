@@ -3,7 +3,7 @@ class User {
     username = '';
     email = '';
     password = '';
-    api_url = '';
+    api_url = 'https://jsonplaceholder.typicode.com/';
 
     async createUser() {
         let userExists = await this.checkExistingUsers();
