@@ -3,7 +3,7 @@ class Post {
     post_content = '';
     user_id = '';
     likes = '';
-    api_url = '';
+    api_url = 'https://jsonplaceholder.typicode.com/';
 
     async create()
     {
