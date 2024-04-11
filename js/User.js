@@ -1,5 +1,3 @@
-console.log("user.");
-
 class User {
     user_id = '';
     username = '';
