@@ -1,0 +1,81 @@
+.title h1 {
+    text-transform: uppercase;
+    color: #000;
+    justify-content: center;
+    display: flex;
+    transform-style: preserve-3d;
+    letter-spacing: 10px;
+    animation: rotateIn 3s ease forwards;
+}
+
+.title h1 span {
+    opacity: 0;
+    transition: all 0.5s ease;
+    transform: translateX(50px);
+    display: inline-block;
+}
+
+.title .fadeMove {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.main-wrapper {
+    max-width: 650px;
+    margin: auto;
+    padding: 50px;
+    border-style: double;
+    border-color: #af89e6;
+    clip-path: polygon(50% 2%, 100% 0, 100% 0, 98% 50%, 100% 100%, 50% 98%, 0 100%, 2% 50%, 0 0, 0 0);
+}
+
+.no-acc-register {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.no-acc-register button {
+    cursor: pointer;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 5px;
+    transition-duration: all 0.4s;
+}
+
+.no-acc-register button:hover {
+    background-color: rgb(245, 233, 255);
+}
+
+.no-acc-register button span {
+    position: relative;
+    transition: 0.5s;
+}
+
+.no-acc-register button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.no-acc-register button:hover span {
+    padding-right: 25px;
+}
+
+.no-acc-register button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.no-acc-register p {
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+

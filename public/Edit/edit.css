@@ -1,0 +1,20 @@
+.main-wrapper {
+    max-width: 650px;
+    margin: auto;
+    padding: 50px;
+    border-style: double;
+    border-color: #af89e6;
+    clip-path: polygon(50% 2%, 100% 0, 100% 0, 98% 50%, 100% 100%, 50% 98%, 0 100%, 2% 50%, 0 0, 0 0);
+}
+
+.main-wrapper h2 {
+    font-weight: 600;
+}
+
+.main-wrapper div input {
+    font-family: Arial, sans-serif;
+}
+
+.main-wrapper div button span {
+    font-family: Arial, sans-serif;
+}
