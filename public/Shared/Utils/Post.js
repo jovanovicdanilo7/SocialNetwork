@@ -10,7 +10,7 @@ class Post {
 
     async initializeApiUrl() {
         try {
-            const response = await fetch('https://social-network-omega-six.vercel.app/api/config');
+            const response = await fetch('https://danetwork.vercel.appp/api/config');
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
