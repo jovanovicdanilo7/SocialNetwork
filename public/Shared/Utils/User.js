@@ -8,7 +8,7 @@ class User {
 
     async initializeApiUrl() {
         try {
-            const response = await fetch(`${process.env.API_BASE_URL}/api/config`);
+            const response = await fetch("https://social-network-omega-six.vercel.app/api/config");
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
