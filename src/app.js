@@ -1,5 +1,6 @@
 const path = require("path");
 const express = require("express");
+const cors = require('cors');
 require("./config/db");
 
 const userRoutes = require("./routes/user");
@@ -15,6 +16,7 @@ app.use("/api/user", userRoutes);
 app.use("/api/config", configRoutes);
 app.use("/api/post", postRoutes);
 app.use("/api/comment", commentRoutes);
+app.use(cors({ origin: 'https://jovanovicdanilo7.github.io' }));
 
 app.use(express.static(path.join(__dirname, "../public")));
 
