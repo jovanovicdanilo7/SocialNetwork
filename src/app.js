@@ -19,7 +19,7 @@ app.use("/api/comment", commentRoutes);
 app.use(express.static(path.join(__dirname, "../public")));
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/Home/index.html"));
+    res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
 app.get("/edit.html", (req, res) => {
