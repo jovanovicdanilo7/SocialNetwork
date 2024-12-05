@@ -3,12 +3,12 @@ class Comment {
         this.postId = '';
         this.userId = '';
         this.commentContent = '';
-        this.apiUrl = 'https://jsonplaceholder.typicode.com/';
+        this.apiUrl = '';
     }
 
     async initializeApiUrl() {
         try {
-            const response = await fetch('/api/config');
+            const response = await fetch('https://social-network-omega-six.vercel.app/api/config');
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }

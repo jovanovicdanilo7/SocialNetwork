@@ -8,7 +8,7 @@ class User {
 
     async initializeApiUrl() {
         try {
-            const response = await fetch('/api/config');
+            const response = await fetch(`${process.env.API_BASE_URL}/api/config`);
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
