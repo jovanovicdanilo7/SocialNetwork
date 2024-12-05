@@ -11,7 +11,7 @@ const commentRoutes = require("./routes/comments");
 const app = express();
 
 const corsOptions = {
-    origin: "https://jovanovicdanilo7.github.io",
+    origin: ["*"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"]
 };
