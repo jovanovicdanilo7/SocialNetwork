@@ -16,7 +16,7 @@ app.use("/api/user", userRoutes);
 app.use("/api/config", configRoutes);
 app.use("/api/post", postRoutes);
 app.use("/api/comment", commentRoutes);
-app.use(cors({ origin: 'https://jovanovicdanilo7.github.io' }));
+app.use(cors());
 
 app.use(express.static(path.join(__dirname, "../public")));
 
