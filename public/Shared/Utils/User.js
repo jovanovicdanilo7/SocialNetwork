@@ -8,7 +8,7 @@ class User {
 
     async initializeApiUrl() {
         try {
-            const response = await fetch("https://danetwork.vercel.app/api/config");
+            const response = await fetch("/api/config");
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -95,7 +95,7 @@ class User {
 
     async loginUser() {
         try {
-            const response = await fetch(`${this.apiUrl}/user/login/${this.email}`);
+            const response = await fetch(`/api/user/login/${this.email}`);
             if (response.ok) {
                 const data = await response.json();
 

@@ -10,7 +10,7 @@ class Post {
 
     async initializeApiUrl() {
         try {
-            const response = await fetch('https://danetwork.vercel.appp/api/config');
+            const response = await fetch('/api/config');
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -61,7 +61,6 @@ class Post {
 
     async likePostSave(postId, likes, listOfLikes) {
         try {
-            console.log("Params: " + postId + "\n" + likes + "\n" + listOfLikes + "\n")
             const data = { likes, listOfLikes };
 
             const response = await fetch(`${this.apiUrl}/post/like/${postId}`, {
