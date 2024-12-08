@@ -103,7 +103,7 @@ class User {
                     const session = new Session();
                     session.userId = data.user._id;
                     session.startSession();
-                    window.location.href = "/hexa.html";
+                    window.location.href = "/Main/hexa.html";
                 } else {
                     alert('Wrong password, please try again.');
                 }
