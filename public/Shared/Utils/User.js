@@ -95,7 +95,7 @@ class User {
 
     async loginUser() {
         try {
-            const response = await fetch(`/api/user/login/${this.email}`);
+            const response = await fetch(`${this.apiUrl}/api/user/login/${this.email}`);
             if (response.ok) {
                 const data = await response.json();
 
