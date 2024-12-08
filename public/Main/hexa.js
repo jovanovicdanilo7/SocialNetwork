@@ -5,7 +5,6 @@ if (!sessionId) window.location.href = '../index.html';
 
 const fetchUserById = async (userId) => {
     const user = new User();
-    await user.initializeApiUrl();
     return await user.getUser(userId);
 };
 
@@ -68,7 +67,6 @@ document.querySelector('#postForm').addEventListener('submit', async (e) => {
     const postContent = document.querySelector("#postContent");
 
     const post = new Post();
-    await post.initializeApiUrl();
     
     post.postContent = postContent.value;
     document.querySelector("#postContent").value = '';
@@ -81,14 +79,12 @@ document.querySelector('#postForm').addEventListener('submit', async (e) => {
 
 const loadAllPosts = async () => {
     const postManager = new Post();
-    await postManager.initializeApiUrl();
     const allPosts = await postManager.getAllPosts();
 
     const postsHtml = await Promise.all(allPosts.map(async (post) => {
         const currentUser = await fetchUserById(post.userId);
 
         const commentManager = new Comment();
-        await commentManager.initializeApiUrl();
         const comments = await commentManager.getPostComments(post._id);
 
         const commentsHtml = await Promise.all(comments.map(async (comment) => {
@@ -113,7 +109,6 @@ const likePost = async (button) => {
     const postId = button.closest(".single-post").getAttribute("data-post_id");
     const post = new Post();
 
-    await post.initializeApiUrl();
     const postData = await post.getPost(postId);
 
     if (postData.listOfLikes[sessionId]) {
@@ -144,7 +139,6 @@ const commentPostSubmit = async (e) => {
     const commentValue = e.target.closest('.post-comments').querySelector('input');
     const commentManager = new Comment();
 
-    await commentManager.initializeApiUrl();
     commentManager.commentContent = commentValue.value;
     commentManager.userId = sessionId;
     commentManager.postId = e.target.closest('.single-post').getAttribute('data-post_id');
@@ -163,7 +157,7 @@ const commentPostSubmit = async (e) => {
 const removeMyPost = async (button) => {
     const postId = button.closest('.single-post').getAttribute('data-post_id');
     const postManager = new Post();
-    await postManager.initializeApiUrl();
+
     await postManager.deletePost(postId);
     button.closest('.single-post').remove();
 };

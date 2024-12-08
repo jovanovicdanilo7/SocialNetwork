@@ -25,10 +25,6 @@ registrationForm.addEventListener('submit', async e => {
     }
 });
 
-(async () => {
-    await user.initializeApiUrl();
-})();
-
 const config = {
     'username': { required: true, minlength: 3, maxlength: 20 },
     'email': { required: true, email: true, minlength: 12, maxlength: 50 },

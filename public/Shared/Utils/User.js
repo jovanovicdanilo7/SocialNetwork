@@ -6,20 +6,6 @@ class User {
         this.apiUrl = 'https://danetwork.vercel.app/api';
     }
 
-    async initializeApiUrl() {
-        try {
-            const response = await fetch("/api/config");
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            const config = await response.json();
-            // this.apiUrl = config.apiUrl;
-        } catch (error) {
-            console.error('Error fetching API URL:', error);
-            throw error;
-        }
-    }
-
     async createUser() {
         const data = {
             username: this.username,
