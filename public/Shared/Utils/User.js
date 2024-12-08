@@ -39,7 +39,7 @@ class User {
                 const session = new Session();
                 session.userId = userData._id;
                 session.startSession();
-                window.location.href = "/hexa.html";
+                window.location.href = "../Main/hexa.html";
             } else {
                 const errorData = await response.json();
                 alert(errorData.message);
@@ -82,7 +82,7 @@ class User {
             });
 
             if (response.ok) {
-                window.location.href = "/hexa.html";
+                window.location.href = "../Main/hexa.html";
             } else {
                 const errorData = await response.json();
                 alert(errorData.error);
@@ -136,7 +136,7 @@ class User {
 
             if (response.ok) {
                 session.destroySession();
-                window.location.href = '/';
+                window.location.href = '../index.html';
             } else {
                 const errorData = await response.json();
                 alert(errorData.error);

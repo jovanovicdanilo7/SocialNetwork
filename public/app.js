@@ -24,7 +24,7 @@ function animateTitleSpans() {
     }, 70);
 }
 
-registerButton.addEventListener('click', () => window.location.href = "Register/register.html");
+registerButton.addEventListener('click', () => window.location.href = "/Register/register.html");
 
 loginForm.addEventListener('submit', async e => {
     e.preventDefault();
@@ -34,7 +34,7 @@ loginForm.addEventListener('submit', async e => {
 });
 
 const session = new Session().getSession();
-if (session && session !== "") window.location.href = "/hexa.html";
+if (session && session !== "") window.location.href = "/Main/hexa.html";
 
 (async () => {
     // await user.initializeApiUrl();

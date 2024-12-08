@@ -1,7 +1,7 @@
 const session = new Session();
 const sessionId = session.getSession();
 
-if (!sessionId) window.location.href = '/';
+if (!sessionId) window.location.href = '../index.html';
 
 const fetchUserById = async (userId) => {
     const user = new User();
@@ -55,12 +55,12 @@ const renderPost = async (post, currentUser, commentsHtml) => {
 document.querySelector('#logout').addEventListener('click', (e) => {
     e.preventDefault();
     session.destroySession();
-    window.location.href = '/';
+    window.location.href = '../index.html';
 });
 
 const editAccount = document.querySelector('#editAccount');
 editAccount.addEventListener('click', () => {
-    window.location.href = "edit.html";
+    window.location.href = "../Edit/edit.html";
 });
 
 document.querySelector('#postForm').addEventListener('submit', async (e) => {
