@@ -3,7 +3,7 @@ class Comment {
         this.postId = '';
         this.userId = '';
         this.commentContent = '';
-        this.apiUrl = 'https://danetwork.vercel.app';
+        this.apiUrl = 'https://danetwork.vercel.app/api';
     }
 
     async initializeApiUrl() {

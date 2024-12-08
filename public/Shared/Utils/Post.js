@@ -5,7 +5,7 @@ class Post {
         this.userId = '';
         this.likes = 0;
         this.listOfLikes = new Map();
-        this.apiUrl = 'https://danetwork.vercel.app';
+        this.apiUrl = 'https://danetwork.vercel.app/api';
     }
 
     async initializeApiUrl() {

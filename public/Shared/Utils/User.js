@@ -3,7 +3,7 @@ class User {
         this.username = '';
         this.email = '';
         this.password = '';
-        this.apiUrl = 'https://danetwork.vercel.app';
+        this.apiUrl = 'https://danetwork.vercel.app/api';
     }
 
     async initializeApiUrl() {
@@ -95,7 +95,7 @@ class User {
 
     async loginUser() {
         try {
-            const response = await fetch(`${this.apiUrl}/api/user/login/${this.email}`);
+            const response = await fetch(`${this.apiUrl}/user/login/${this.email}`);
             if (response.ok) {
                 const data = await response.json();
 
