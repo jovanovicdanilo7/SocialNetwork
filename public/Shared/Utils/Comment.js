@@ -3,7 +3,7 @@ class Comment {
         this.postId = '';
         this.userId = '';
         this.commentContent = '';
-        this.apiUrl = '';
+        this.apiUrl = 'https://danetwork.vercel.app';
     }
 
     async initializeApiUrl() {
@@ -14,7 +14,7 @@ class Comment {
             }
 
             const config = await response.json();
-            this.apiUrl = config.apiUrl;
+            // this.apiUrl = config.apiUrl;
         } catch (error) {
             console.error('Error fetching API URL:', error);
             throw error;

@@ -5,7 +5,7 @@ class Post {
         this.userId = '';
         this.likes = 0;
         this.listOfLikes = new Map();
-        this.apiUrl = '';
+        this.apiUrl = 'https://danetwork.vercel.app';
     }
 
     async initializeApiUrl() {
@@ -15,7 +15,7 @@ class Post {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             const config = await response.json();
-            this.apiUrl = config.apiUrl;
+            // this.apiUrl = config.apiUrl;
         } catch (error) {
             console.error('Error fetching API URL:', error);
             throw error;

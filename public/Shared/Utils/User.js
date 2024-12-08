@@ -3,7 +3,7 @@ class User {
         this.username = '';
         this.email = '';
         this.password = '';
-        this.apiUrl = '';
+        this.apiUrl = 'https://danetwork.vercel.app';
     }
 
     async initializeApiUrl() {
@@ -13,7 +13,7 @@ class User {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             const config = await response.json();
-            this.apiUrl = config.apiUrl;
+            // this.apiUrl = config.apiUrl;
         } catch (error) {
             console.error('Error fetching API URL:', error);
             throw error;
