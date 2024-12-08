@@ -37,6 +37,6 @@ const session = new Session().getSession();
 if (session && session !== "") window.location.href = "/hexa.html";
 
 (async () => {
-    await user.initializeApiUrl();
+    // await user.initializeApiUrl();
     animateTitleSpans();
 })();
