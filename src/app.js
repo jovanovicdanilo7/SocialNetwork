@@ -1,6 +1,5 @@
 const path = require("path");
 const express = require("express");
-const cors = require('cors');
 require("./config/db");
 
 const userRoutes = require("./routes/user");
@@ -9,14 +8,6 @@ const postRoutes = require("./routes/post");
 const commentRoutes = require("./routes/comments");
 
 const app = express();
-
-const corsOptions = {
-    origin: ["*"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"]
-};
-
-app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/api/config", configRoutes);
