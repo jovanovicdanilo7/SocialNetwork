@@ -3,21 +3,6 @@ class User {
         this.username = '';
         this.email = '';
         this.password = '';
-        this.apiUrl = '';
-    }
-
-    async initializeApiUrl() {
-        try {
-            const response = await fetch("/api/config");
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            const config = await response.json();
-            this.apiUrl = config.apiUrl;
-        } catch (error) {
-            console.error('Error fetching API URL:', error);
-            throw error;
-        }
     }
 
     async createUser() {
@@ -28,7 +13,7 @@ class User {
         };
 
         try {
-            const response = await fetch(`${this.apiUrl}/user/register`, {
+            const response = await fetch(`api/user/register`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
@@ -39,7 +24,7 @@ class User {
                 const session = new Session();
                 session.userId = userData._id;
                 session.startSession();
-                window.location.href = "/hexa.html";
+                window.location.href = "hexa.html";
             } else {
                 const errorData = await response.json();
                 alert(errorData.message);
@@ -52,7 +37,7 @@ class User {
 
     async getUser(userId) {
         try {
-            const response = await fetch(`${this.apiUrl}/user/${userId}`);
+            const response = await fetch(`api/user/${userId}`);
             if (response.ok) {
                 return await response.json();
             } else {
@@ -75,14 +60,14 @@ class User {
             const session = new Session();
             const sessionId = session.getSession();
 
-            const response = await fetch(`${this.apiUrl}/user/edit/${sessionId}`, {
+            const response = await fetch(`api/user/edit/${sessionId}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
             });
 
             if (response.ok) {
-                window.location.href = "/hexa.html";
+                window.location.href = "hexa.html";
             } else {
                 const errorData = await response.json();
                 alert(errorData.error);
@@ -103,7 +88,7 @@ class User {
                     const session = new Session();
                     session.userId = data.user._id;
                     session.startSession();
-                    window.location.href = "/hexa.html";
+                    window.location.href = "hexa.html";
                 } else {
                     alert('Wrong password, please try again.');
                 }
@@ -122,15 +107,15 @@ class User {
             const session = new Session();
             const sessionId = session.getSession();
 
-            await fetch(`${this.apiUrl}/post/delete-by-user/${sessionId}`, {
+            await fetch(`/api/post/delete-by-user/${sessionId}`, {
                 method: "DELETE",
             });
 
-            await fetch(`${this.apiUrl}/comment/delete-by-user/${sessionId}`, {
+            await fetch(`/api/comment/delete-by-user/${sessionId}`, {
                 method: "DELETE",
             });
 
-            const response = await fetch(`${this.apiUrl}/user/delete/${sessionId}`, {
+            const response = await fetch(`/api/user/delete/${sessionId}`, {
                 method: 'DELETE',
             });
 

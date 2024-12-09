@@ -5,21 +5,6 @@ class Post {
         this.userId = '';
         this.likes = 0;
         this.listOfLikes = new Map();
-        this.apiUrl = '';
-    }
-
-    async initializeApiUrl() {
-        try {
-            const response = await fetch('/api/config');
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            const config = await response.json();
-            this.apiUrl = config.apiUrl;
-        } catch (error) {
-            console.error('Error fetching API URL:', error);
-            throw error;
-        }
     }
 
     async createPost() {
@@ -34,7 +19,7 @@ class Post {
                 listOfLikes: this.listOfLikes,
             };
 
-            const response = await fetch(`${this.apiUrl}/post/create`, {
+            const response = await fetch(`/api/post/create`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -51,7 +36,7 @@ class Post {
 
     async getAllPosts() {
         try {
-            const response = await fetch(`${this.apiUrl}/post/all`);
+            const response = await fetch(`/api/post/all`);
             return response.ok ? await response.json() : (await response.json()).error;
         } catch (error) {
             console.error('Error fetching all posts:', error);
@@ -63,7 +48,7 @@ class Post {
         try {
             const data = { likes, listOfLikes };
 
-            const response = await fetch(`${this.apiUrl}/post/like/${postId}`, {
+            const response = await fetch(`/api/post/like/${postId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -80,7 +65,7 @@ class Post {
 
     async deletePost(postId) {
         try {
-            const response = await fetch(`${this.apiUrl}/post/delete/${postId}`, {
+            const response = await fetch(`/api/post/delete/${postId}`, {
                 method: 'DELETE',
             });
 
@@ -93,7 +78,7 @@ class Post {
 
     async getPost(postId) {
         try {
-            const response = await fetch(`${this.apiUrl}/post/${postId}`);
+            const response = await fetch(`/api/post/${postId}`);
             return response.ok ? await response.json() : (await response.json()).error;
         } catch (error) {
             console.error('Error fetching post:', error);

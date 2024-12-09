@@ -3,22 +3,6 @@ class Comment {
         this.postId = '';
         this.userId = '';
         this.commentContent = '';
-        this.apiUrl = '';
-    }
-
-    async initializeApiUrl() {
-        try {
-            const response = await fetch('/api/config');
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
-            const config = await response.json();
-            this.apiUrl = config.apiUrl;
-        } catch (error) {
-            console.error('Error fetching API URL:', error);
-            throw error;
-        }
     }
 
     async createComment() {
@@ -29,7 +13,7 @@ class Comment {
                 commentContent: this.commentContent,
             };
 
-            const response = await fetch(`${this.apiUrl}/comment/create`, {
+            const response = await fetch(`/api/comment/create`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -46,7 +30,7 @@ class Comment {
 
     async getPostComments(postId) {
         try {
-            const response = await fetch(`${this.apiUrl}/comment/${postId}`);
+            const response = await fetch(`/api/comment/${postId}`);
 
             if (!response.ok) {
                 const errorData = await response.json();

@@ -3,14 +3,12 @@ const express = require("express");
 require("./config/db");
 
 const userRoutes = require("./routes/user");
-const configRoutes = require("./routes/config");
 const postRoutes = require("./routes/post");
 const commentRoutes = require("./routes/comments");
 
 const app = express();
 app.use(express.json());
 
-app.use("/api/config", configRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/post", postRoutes);
 app.use("/api/comment", commentRoutes);
@@ -27,6 +25,10 @@ app.get("/edit.html", (req, res) => {
 
 app.get("/hexa.html", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/Main/hexa.html"));
+});
+
+app.get("/register.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/Register/register.html"));
 });
 
 const PORT = process.env.PORT || 5000;

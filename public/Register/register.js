@@ -1,5 +1,6 @@
 const registrationForm = document.querySelector('#registrationForm');
 const regFormButton = document.querySelector('#btn');
+const backToLoginPage = document.querySelector('#back-btn');
 
 const user = new User();
 
@@ -25,9 +26,11 @@ registrationForm.addEventListener('submit', async e => {
     }
 });
 
-(async () => {
-    await user.initializeApiUrl();
-})();
+backToLoginPage.addEventListener("click", e => {
+    e.preventDefault();
+
+    window.location.href = "./index.html";
+});
 
 const config = {
     'username': { required: true, minlength: 3, maxlength: 20 },

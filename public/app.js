@@ -24,19 +24,24 @@ function animateTitleSpans() {
     }, 70);
 }
 
-registerButton.addEventListener('click', () => window.location.href = "Register/register.html");
+registerButton.addEventListener('click', () => window.location.href = "register.html");
 
 loginForm.addEventListener('submit', async e => {
     e.preventDefault();
     user.email = document.querySelector('#login_email').value;
     user.password = document.querySelector('#login_password').value;
+
+    if (user.email.trim() === "" || user.password.trim() === "") {
+        alert("Please enter email address and password.");
+        return;
+    }
+
     await user.loginUser();
 });
 
 const session = new Session().getSession();
-if (session && session !== "") window.location.href = "/hexa.html";
+if (session && session !== "") window.location.href = "hexa.html";
 
 (async () => {
-    await user.initializeApiUrl();
     animateTitleSpans();
 })();
