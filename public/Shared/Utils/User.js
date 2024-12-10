@@ -3,7 +3,7 @@ class User {
         this.username = '';
         this.email = '';
         this.password = '';
-        this.apiUrl = 'https://danetwork.vercel.app/api';
+        this.apiUrl = 'https://foroom.vercel.app/api';
     }
 
     async createUser() {

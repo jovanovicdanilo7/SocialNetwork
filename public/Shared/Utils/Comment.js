@@ -3,7 +3,7 @@ class Comment {
         this.postId = '';
         this.userId = '';
         this.commentContent = '';
-        this.apiUrl = 'https://danetwork.vercel.app/api';
+        this.apiUrl = 'https://foroom.vercel.app/api';
     }
 
     async createComment() {
