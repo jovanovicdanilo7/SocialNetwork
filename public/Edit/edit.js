@@ -1,5 +1,6 @@
 const session = new Session();
 const sessionId = session.getSession();
+const backToMainPage = document.querySelector("#back-btn");
 
 const fetchUserById = async (userId) => {
     const user = new User();
@@ -30,3 +31,9 @@ document.querySelector("#deleteProfile").addEventListener('click', async (e) => 
         await user.deleteUser();
     }
 });
+
+backToMainPage.addEventListener("click", e => {
+    e.preventDefault();
+
+    window.location.href = "../Main/hexa.html";
+})

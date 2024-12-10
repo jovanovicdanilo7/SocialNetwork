@@ -18,3 +18,9 @@
 .main-wrapper div button span {
     font-family: Arial, sans-serif;
 }
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

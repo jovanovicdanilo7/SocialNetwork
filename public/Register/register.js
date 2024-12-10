@@ -1,5 +1,6 @@
 const registrationForm = document.querySelector('#registrationForm');
 const regFormButton = document.querySelector('#btn');
+const backToLoginPage = document.querySelector('#back-btn');
 
 const user = new User();
 
@@ -23,6 +24,12 @@ registrationForm.addEventListener('submit', async e => {
     } else {
         alert('Invalid fields. Please try again.');
     }
+});
+
+backToLoginPage.addEventListener("click", e => {
+    e.preventDefault();
+
+    window.location.href = "../index.html";
 });
 
 const config = {
